@@ -1,0 +1,19 @@
+ip: 192.168.10.20
+memory: 1024
+cpus: 1
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: /Users/Mike/Documents/myTest
+        to: /home/vagrant/mytest
+sites:
+    -
+        map: myTest.app
+        to: /home/vagrant/mytest
+databases:
+    - homestead
+name: mytest
+hostname: mytest
