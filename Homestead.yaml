@@ -1,19 +1,17 @@
-ip: 192.168.10.20
-memory: 1024
+ip: 192.168.10.10
+memory: 2048
 cpus: 1
 provider: virtualbox
 authorize: ~/.ssh/id_rsa.pub
 keys:
     - ~/.ssh/id_rsa
 folders:
-    -
-        map: /Users/Mike/Documents/myTest
-        to: /home/vagrant/mytest
+    - map: /Users/Mike/Documents/sandbox-Wokerman-RPC
+      to: /home/vagrant/sandbox-wokerman-rpc
 sites:
-    -
-        map: myTest.app
-        to: /home/vagrant/mytest
+    - map: sandbox-Wokerman-RPC.app
+      to: /home/vagrant/sandbox-wokerman-rpc
 databases:
     - homestead
-name: mytest
-hostname: mytest
+name: sandbox-wokerman-rpc
+hostname: sandbox-wokerman-rpc
