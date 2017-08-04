@@ -1,6 +1,6 @@
 database:
   driver: pdo_mysql
-  host: 192.168.10.10
+  host: 192.168.10.20
   dbname: homestead
   user: homestead
   password: secret

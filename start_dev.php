@@ -10,18 +10,13 @@ $task = new Worker();
 $task->count = 1;
 $task->onWorkerStart = function($task)
 {
-    $re = system('php start.php start -d');
-//    system("echo $re");
-//    system("echo 'start success...'");
+    system('php start.php start -d');
 
     // 每1秒执行一次
     $time_interval = 1;
     Timer::add($time_interval, function()
     {
-        $now = new \DateTime();
-        $now = $now->format('Y-m-d H:i:s');
         system('php start.php reload');
-//        system("echo $now': reload success...'");
     });
 };
 
