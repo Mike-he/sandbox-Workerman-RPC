@@ -39,6 +39,6 @@ COPY ./ /root/
 #ADD entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 
-EXPOSE 7681 2015
+EXPOSE 2015
 
 ENTRYPOINT ["/root/entrypoint.sh"]
