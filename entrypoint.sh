@@ -8,4 +8,4 @@ chmod +x /root/start.php
 
 php /root/start.php start -d
 
-ttyd bash
+top -a

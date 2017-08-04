@@ -1,7 +1,23 @@
 FROM ubuntu:17.04
 MAINTAINER MikeHe <mike_hequan@163.com>
 
+RUN echo " \
+deb http://mirrors.aliyun.com/ubuntu/ zesty main restricted universe multiverse \
+deb http://mirrors.aliyun.com/ubuntu/ zesty-security main restricted universe multiverse \
+deb http://mirrors.aliyun.com/ubuntu/ zesty-updates main restricted universe multiverse \
+deb http://mirrors.aliyun.com/ubuntu/ zesty-backports main restricted universe multiverse \
+deb http://mirrors.aliyun.com/ubuntu/ zesty-proposed main restricted universe multiverse \
+deb-src http://mirrors.aliyun.com/ubuntu/ zesty main restricted universe multiverse \
+deb-src http://mirrors.aliyun.com/ubuntu/ zesty-security main restricted universe multiverse \
+deb-src http://mirrors.aliyun.com/ubuntu/ zesty-updates main restricted universe multiverse \
+deb-src http://mirrors.aliyun.com/ubuntu/ zesty-backports main restricted universe multiverse \
+deb-src http://mirrors.aliyun.com/ubuntu/ zesty-proposed main restricted universe multiverse \
+deb http://archive.canonical.com/ubuntu/ zesty partner \
+deb http://extras.ubuntu.com/ubuntu/ zesty main \
+" > /etc/apt/sources.list
+
 RUN apt-get update -y && \
+apt-get upgrade -y && \
 apt-get install -y php7.0-fpm \
 php7.0-cli \
 php7.0-common \
@@ -13,17 +29,9 @@ php7.0-mysql \
 php7.0-mcrypt \
 php7.0-zip
 
-# install ttyd
-RUN apt-get install -y cmake g++ pkg-config git vim-common libwebsockets-dev libjson-c-dev libssl-dev && \
-cd /root  && \
-git clone https://github.com/tsl0922/ttyd.git && \
-cd ttyd && mkdir build && cd build && \
-cmake .. && \
-make && make install
-
 # Clean OS
 RUN apt-get clean all && \
-rm -rf /tmp/* /root/ttyd
+rm -rf /tmp/*
 
 # copy code
 COPY ./ /root/
