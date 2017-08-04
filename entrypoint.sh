@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$TZ" ]; then
+   TZ=Asia/Shanghai
+fi
+ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo "${TZ}" > /etc/timezone
+
 cd /root
 
 git pull
@@ -12,4 +17,4 @@ chmod +x /root/start.php
 
 php /root/start.php start -d
 
-top -bc
+tail -f /dev/null
