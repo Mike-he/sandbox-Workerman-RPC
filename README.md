@@ -1,6 +1,5 @@
 workerman
 =========
-
 workerman 是一个高性能的PHP socket服务框架，开发者可以在这个框架下开发各种网络应用,例如Rpc服务、聊天室、游戏等。
 workerman 具有以下特性
  * 多进程
