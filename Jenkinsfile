@@ -11,7 +11,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'Deploying master'
+                input "Does the staging environment look ok?"
             }
         }
     }
